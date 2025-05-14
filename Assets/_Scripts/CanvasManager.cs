@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager instance;
+
+    public Slider healthSlider;
 
     public List<InvUISlot> invUI = new();
 
@@ -26,6 +29,11 @@ public class CanvasManager : MonoBehaviour
     public void RenderScore()
     {
         scoreText.text = GameManager.instance.GetScore() + " coins collected";
+    }
+
+    public void RenderHealth()
+    {
+        healthSlider.value = GameManager.instance.GetHealth();
     }
 
     public void RenderPlayerInventory()

@@ -28,6 +28,8 @@ public class PlayerInventory : MonoBehaviour
 
     void AddToInventory(Item item)
     {
+        GameManager.instance.AddHealth(-50);
+
         inventory.Add(item);
 
         Debug.Log("Adding item to inventory: " + item.itemName);
@@ -46,6 +48,7 @@ public class PlayerInventory : MonoBehaviour
                 return true;
             case Item.ItemType.Health:
                 // Add health to player
+                GameManager.instance.AddHealth(10);
                 return true;
             case Item.ItemType.ToInventory:
                 if (inventory.Count < MAX_INVENTORY_SIZE)
