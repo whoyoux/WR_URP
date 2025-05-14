@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         PLAYER_SCORE += score;
-        Debug.Log("Player Score: " + PLAYER_SCORE);
+        //Debug.Log("Player Score: " + PLAYER_SCORE);
     }
 
     public int GetScore()
