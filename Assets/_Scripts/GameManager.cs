@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         CanvasManager.instance.RenderHealth();
 
-        if (PLAYER_HEALTH < 0)
+        if (PLAYER_HEALTH <= 0)
         {
             PLAYER_HEALTH = 0;
             GAME_OVER();
