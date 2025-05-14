@@ -38,7 +38,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool CollectItem(Item item)
     {
-        Debug.Log("Collected item: " + item.itemName);
+        //Debug.Log("Collected item: " + item.itemName);
 
         switch(item.itemType)
         {
