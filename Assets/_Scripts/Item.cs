@@ -28,6 +28,6 @@ public class Item : ScriptableObject
     public ItemType itemType = ItemType.ToInventory;
     public ItemLight itemLight = ItemLight.Red;
 
-    public Image itemImage;
+    public Sprite itemSprite;
     public GameObject itemPrefab;
 }
