@@ -62,8 +62,8 @@ public class CollectableItem : MonoBehaviour
             {
                 // Jeœli przedmiot ma przypisany dŸwiêk, odtwórz go
                 if (audioSource != null && !!item.itemAudioClip)
-                {                 
-                    audioSource.Play();
+                {
+                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
                 }
                 Destroy(gameObject);
             }
