@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,10 +16,10 @@ public class CollectableItem : MonoBehaviour
         lightUnderGO = GetComponentInChildren<Light>();
         audioSource = GetComponent<AudioSource>();
 
-        // Ustawienie düwiÍku przedmiotu
+        // Ustawienie d≈∫wiƒôku przedmiotu
         audioSource.clip = item.itemAudioClip;
 
-        // Animacje przedmiotu (przeskalowanie, obrÛt, ruch)
+        // Animacje przedmiotu (przeskalowanie, obr√≥t, ruch)
         LeanTween.scale(gameObject, new Vector3(1.2f, 1.2f, 1.2f), 1f).setLoopPingPong();
         LeanTween.rotateAround(gameObject, Vector3.up, 360f, 5f).setLoopClamp();
         LeanTween.moveY(gameObject, transform.position.y + 0.5f, 1f).setLoopPingPong();
@@ -27,7 +27,7 @@ public class CollectableItem : MonoBehaviour
         // Tworzenie modelu graficznego przedmiotu w odpowiednim miejscu
         Instantiate(item.itemPrefab, itemGOHolder.position, Quaternion.identity, itemGOHolder);
 
-        // Ustawienie koloru úwiat≥a w zaleønoúci od typu przedmiotu
+        // Ustawienie koloru ≈õwiat≈Ça w zale≈ºno≈õci od typu przedmiotu
         if (item.itemLight == Item.ItemLight.Red)
         {
             lightUnderGO.color = Color.red;
@@ -54,13 +54,13 @@ public class CollectableItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // PrÛba zebrania przedmiotu
+            // Pr√≥ba zebrania przedmiotu
             bool isItemCollected = PlayerInventory.instance.CollectItem(item);
 
-            // Jeúli przedmiot zosta≥ zebrany (np. ekwipunek nie jest pe≥ny), usuÒ go z gry
+            // Je≈õli przedmiot zosta≈Ç zebrany (np. ekwipunek nie jest pe≈Çny), usu≈Ñ go z gry
             if (isItemCollected)
             {
-                // Jeúli przedmiot ma przypisany düwiÍk, odtwÛrz go
+                // Je≈õli przedmiot ma przypisany d≈∫wiƒôk, odtw√≥rz go
                 if (audioSource != null && !!item.itemAudioClip)
                 {
                     AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);

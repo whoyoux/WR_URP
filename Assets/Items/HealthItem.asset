@@ -16,6 +16,7 @@ MonoBehaviour:
   itemID: health
   itemType: 1
   itemLight: 1
-  itemImage: {fileID: 0}
+  itemSprite: {fileID: 0}
   itemPrefab: {fileID: 8522755617605078003, guid: b99f1e86d6e69044982d849dde5f2f33,
     type: 3}
+  itemAudioClip: {fileID: 8300000, guid: 8c9efda9465128d4d86ac84a822572be, type: 3}
