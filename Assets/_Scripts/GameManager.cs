@@ -20,9 +20,48 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
-    void Update()
+    private void Start()
     {
-        
+        CanvasManager.instance.HideUI();
+        WaitForAcceptTutorial();
+    }
+
+    public void LockCursor()
+    {
+        // Ukrycie i zablokowanie kursora w centrum ekranu
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void UnlockCursor()
+    {
+        // Odblokowanie kursora
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void WaitForAcceptTutorial()
+    {
+        CanvasManager.instance.ShowTutorialPanel();
+        PauseGame();
+    }
+    public void TutorialAccepted()
+    {
+        ResumeGame();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        CanvasManager.instance.HideUI();
+        UnlockCursor();
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        CanvasManager.instance.ShowUI();
+        LockCursor();
     }
 
     public void AddScore(int score)
@@ -65,13 +104,10 @@ public class GameManager : MonoBehaviour
 
     private void GAME_OVER()
     {
-        Debug.Log("Game Over");
-        Debug.Log("Game Over");
-        Debug.Log("Game Over");
-        Debug.Log("Game Over");
-        Debug.Log("Game Over");
-        Debug.Log("Game Over");
-        Time.timeScale = 0f;
+        PauseGame();
+        CanvasManager.instance.ShowGameOverPanel();
+
+        //TODO: Przycisk restartu
     }
 
 

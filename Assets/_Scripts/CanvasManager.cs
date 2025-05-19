@@ -12,6 +12,12 @@ public class CanvasManager : MonoBehaviour
 
     public List<InvUISlot> invUI = new();
 
+    public GameObject tutorialGameObject;
+
+    public GameObject gameOverGameObject;
+
+    public List<GameObject> uiToHideWhileMenu = new();
+
     // Singleton pattern
     private void Awake()
     {
@@ -39,6 +45,35 @@ public class CanvasManager : MonoBehaviour
         healthSlider.value = GameManager.instance.GetHealth();
     }
 
+    public void ShowTutorialPanel()
+    {
+        tutorialGameObject.SetActive(true);
+    }
+
+    public void HideUI()
+    {
+        for (int i = 0; i < uiToHideWhileMenu.Count; i++)
+        {
+            Debug.Log("Hiding UI: " + uiToHideWhileMenu[i].name);
+            uiToHideWhileMenu[i].SetActive(false);
+        }
+    }
+
+    public void ShowUI()
+    {
+        for (int i = 0; i < uiToHideWhileMenu.Count; i++)
+        {
+            Debug.Log("Showing UI: " + uiToHideWhileMenu[i].name);
+            uiToHideWhileMenu[i].SetActive(true);
+        }
+    }
+
+    public void AcceptTutorial()
+    {
+        tutorialGameObject.SetActive(false);
+        GameManager.instance.TutorialAccepted();
+    }
+
     public void RenderPlayerInventory()
     {
         // Renderowanie zawartoœci ekwipunku w UI
@@ -53,5 +88,10 @@ public class CanvasManager : MonoBehaviour
                 invUI[i].RenderItem(null);
             }
         }
+    }
+
+    public void ShowGameOverPanel()
+    {
+        gameOverGameObject.SetActive(true);
     }
 }

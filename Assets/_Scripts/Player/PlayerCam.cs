@@ -14,9 +14,7 @@ public class PlayerCam : MonoBehaviour
 
     void Start()
     {
-        // Ukrycie i zablokowanie kursora w centrum ekranu
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        GameManager.instance.LockCursor();
 
         xRot = 0;
         yRot = 0;
