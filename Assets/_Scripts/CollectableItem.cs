@@ -7,12 +7,17 @@ public class CollectableItem : MonoBehaviour
 {
     public Transform itemGOHolder;
     private Light lightUnderGO;
+    private AudioSource audioSource;
 
     public Item item;
 
     void Start()
     {
         lightUnderGO = GetComponentInChildren<Light>();
+        audioSource = GetComponent<AudioSource>();
+
+        // Ustawienie dŸwiêku przedmiotu
+        audioSource.clip = item.itemAudioClip;
 
         // Animacje przedmiotu (przeskalowanie, obrót, ruch)
         LeanTween.scale(gameObject, new Vector3(1.2f, 1.2f, 1.2f), 1f).setLoopPingPong();
@@ -55,6 +60,11 @@ public class CollectableItem : MonoBehaviour
             // Jeœli przedmiot zosta³ zebrany (np. ekwipunek nie jest pe³ny), usuñ go z gry
             if (isItemCollected)
             {
+                // Jeœli przedmiot ma przypisany dŸwiêk, odtwórz go
+                if (audioSource != null && !!item.itemAudioClip)
+                {                 
+                    audioSource.Play();
+                }
                 Destroy(gameObject);
             }
         }

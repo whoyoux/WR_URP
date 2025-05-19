@@ -16,6 +16,7 @@ MonoBehaviour:
   itemID: coin
   itemType: 0
   itemLight: 3
-  itemImage: {fileID: 0}
+  itemSprite: {fileID: 0}
   itemPrefab: {fileID: 6655664025678246592, guid: 8914e08a75f68d34295239eb708e5122,
     type: 3}
+  itemAudioClip: {fileID: 8300000, guid: d2172ce233d008e45a123edef7b74294, type: 3}

@@ -30,4 +30,5 @@ public class Item : ScriptableObject
 
     public Sprite itemSprite;
     public GameObject itemPrefab;
+    public AudioClip itemAudioClip;
 }
