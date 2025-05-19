@@ -14,12 +14,15 @@ public class CollectableItem : MonoBehaviour
     {
         lightUnderGO = GetComponentInChildren<Light>();
 
+        // Animacje przedmiotu (przeskalowanie, obrót, ruch)
         LeanTween.scale(gameObject, new Vector3(1.2f, 1.2f, 1.2f), 1f).setLoopPingPong();
         LeanTween.rotateAround(gameObject, Vector3.up, 360f, 5f).setLoopClamp();
         LeanTween.moveY(gameObject, transform.position.y + 0.5f, 1f).setLoopPingPong();
 
+        // Tworzenie modelu graficznego przedmiotu w odpowiednim miejscu
         Instantiate(item.itemPrefab, itemGOHolder.position, Quaternion.identity, itemGOHolder);
 
+        // Ustawienie koloru œwiat³a w zale¿noœci od typu przedmiotu
         if (item.itemLight == Item.ItemLight.Red)
         {
             lightUnderGO.color = Color.red;
@@ -46,11 +49,14 @@ public class CollectableItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Próba zebrania przedmiotu
             bool isItemCollected = PlayerInventory.instance.CollectItem(item);
+
+            // Jeœli przedmiot zosta³ zebrany (np. ekwipunek nie jest pe³ny), usuñ go z gry
             if (isItemCollected)
-                {
-                    Destroy(gameObject);
-                }
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

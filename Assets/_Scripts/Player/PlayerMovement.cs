@@ -26,12 +26,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
+        // Pobieranie wejœcia od gracza
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
     {
+        // Obliczenie kierunku ruchu wzglêdem orientacji (np. kierunku kamery)
         moveDir = (oriention.forward * verticalInput + oriention.right * horizontalInput).normalized;
 
         rb.AddForce(moveDir * moveSpeed * 10f, ForceMode.Force);
@@ -50,10 +52,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
+        // Obliczenie prêdkoœci w p³aszczyŸnie poziomej
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         if (flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            // Zachowanie pionowej prêdkoœci (np. podczas skoku), ograniczenie poziomej
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
     }

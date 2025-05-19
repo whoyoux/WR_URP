@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour
 
     public List<InvUISlot> invUI = new();
 
+    // Singleton pattern
     private void Awake()
     {
         if (instance == null)
@@ -28,16 +29,19 @@ public class CanvasManager : MonoBehaviour
 
     public void RenderScore()
     {
+        // Aktualizacja tekstu z wynikiem na podstawie danych z GameManagera
         scoreText.text = GameManager.instance.GetScore() + " coins collected";
     }
 
     public void RenderHealth()
     {
+        // Aktualizacja paska zdrowia na podstawie danych z GameManagera
         healthSlider.value = GameManager.instance.GetHealth();
     }
 
     public void RenderPlayerInventory()
     {
+        // Renderowanie zawartoœci ekwipunku w UI
         for (int i = 0; i < invUI.Count; i++)
         {
             if (i < PlayerInventory.instance.GetInv().Count)

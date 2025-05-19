@@ -10,20 +10,11 @@ public class PlayerInventory : MonoBehaviour
 
     const int MAX_INVENTORY_SIZE = 5;
 
+    // Singleton pattern
     private void Awake()
     {
         if (instance == null)
             instance = this;
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void AddToInventory(Item item)
@@ -38,19 +29,20 @@ public class PlayerInventory : MonoBehaviour
 
     public bool CollectItem(Item item)
     {
-        //Debug.Log("Collected item: " + item.itemName);
-
-        switch(item.itemType)
+        // Obs³uga ró¿nych typów przedmiotów na podstawie typu
+        switch (item.itemType)
         {
             case Item.ItemType.Coin:
+                // Moneta zwiêksza wynik
                 GameManager.instance.AddScore(1);
                 CanvasManager.instance.RenderScore();
                 return true;
             case Item.ItemType.Health:
-                // Add health to player
+                // Leczenie gracza
                 GameManager.instance.AddHealth(10);
                 return true;
             case Item.ItemType.ToInventory:
+                // Przedmiot dodawany do ekwipunku, o ile nie jest pe³ny
                 if (inventory.Count < MAX_INVENTORY_SIZE)
                 {
                     AddToInventory(item);
