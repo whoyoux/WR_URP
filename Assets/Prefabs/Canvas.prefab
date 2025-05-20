@@ -1500,7 +1500,7 @@ MonoBehaviour:
   - {fileID: 1946622063392248541}
   - {fileID: 5355766255214378658}
   switchesText: {fileID: 6693173888401328214}
-  scoreText: {fileID: 7675780023633238895}
+  coinsText: {fileID: 7675780023633238895}
 --- !u!1 &5355766255214378658
 GameObject:
   m_ObjectHideFlags: 0
