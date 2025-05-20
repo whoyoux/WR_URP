@@ -19,3 +19,4 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: fd4d033aa7269c948817948339d98092, type: 3}
   itemPrefab: {fileID: 5478578113267515501, guid: eda906c7368f2f2438b172351d127ca4,
     type: 3}
+  itemAudioClip: {fileID: 8300000, guid: 723e8961afc4eec41a04a0362d39f4a9, type: 3}

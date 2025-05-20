@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 4113117007025131619}
   - component: {fileID: 1667015658001568679}
   - component: {fileID: 4497961863704014109}
-  - component: {fileID: 6889828697956981069}
   m_Layer: 0
   m_Name: Switch
   m_TagString: Untagged
@@ -356,28 +355,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &6889828697956981069
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6988328364904733026}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76498b10fcc4b984c9ee043512bf0b4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1649977978526318420
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,9 +15,12 @@ public class Switch : MonoBehaviour
     private bool isPlayerInRange = false;
     private bool _isActivated = false;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
+        audioSource = GetComponent<AudioSource>();
         sphereCollider.radius = radius;
 
         goToShowWhenInCollider.SetActive(false);
@@ -59,6 +62,7 @@ public class Switch : MonoBehaviour
         text.text = "Ju¿ aktywowano!";
 
         GameManager.instance.RenderSwitchesActivated();
+        audioSource.Play();
     }
 
     public bool isActivated()
