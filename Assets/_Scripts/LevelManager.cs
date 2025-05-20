@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager instance;
 
+    public string KeyToOpenID;
+
     private void Awake()
     {
         if (instance == null)
@@ -79,9 +81,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private bool DoPlayerHasKey(string keyId)
+    {
+        var items = PlayerInventory.instance.GetInv();
+
+        bool hasKey = false;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].itemID == keyId)
+            {
+                hasKey = true;
+            }
+        }
+
+        return hasKey;
+    }
+
     public bool CanOpenDoor()
     {
-        if(AreAllSwitchesActivated() && AreAllCoinsTaken())
+        if(AreAllSwitchesActivated() && AreAllCoinsTaken() && DoPlayerHasKey(KeyToOpenID))
         {
             return true;
         }

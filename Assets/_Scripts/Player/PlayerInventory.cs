@@ -19,9 +19,6 @@ public class PlayerInventory : MonoBehaviour
 
     void AddToInventory(Item item)
     {
-        // Testing
-        GameManager.instance.AddHealth(-50);
-
         inventory.Add(item);
 
         Debug.Log("Adding item to inventory: " + item.itemName);
