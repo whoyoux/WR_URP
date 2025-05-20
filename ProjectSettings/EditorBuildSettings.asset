@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MazeGenerator.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Level0.unity
+    guid: 3be69587d75555a479af230816a398ec
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 30fea5a2d02892947afa8b479605855d
   m_configObjects: {}
