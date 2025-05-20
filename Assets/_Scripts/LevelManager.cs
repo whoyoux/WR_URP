@@ -67,4 +67,30 @@ public class LevelManager : MonoBehaviour
 
         return isOk;
     }
+
+    public bool AreAllCoinsTaken()
+    {
+        if (GetAllCoinsCount() == GameManager.instance.GetScore())
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    public bool CanOpenDoor()
+    {
+        if(AreAllSwitchesActivated() && AreAllCoinsTaken())
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void LevelZeroEndAction()
+    {
+        //Todo: load level 1
+    }
 }

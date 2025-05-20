@@ -777,10 +777,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Witaj graczu\n\nTwoim zadaniem jest znalezienie wszystkich kluczy, aby
-    otworzy\u0107 ko\u0144cowe drzwi.\nPo drodze natrafisz na pieni\u0105zki. Musisz
-    mie\u0107 ich a\u017C 5, aby klucznik przepu\u015Bci\u0142 Ci\u0119 dalej.\n\nUwa\u017Caj
-    na fa\u0142szywe klucze!"
+  m_text: "Witaj graczu\n\nTwoim zadaniem jest zdobycie wszystkich wymaganych rzeczy
+    oraz prze\u0142\u0105czenie wszystkich prze\u0142\u0105cznik\xF3w, kt\xF3re znajduj\u0105
+    si\u0119 w labiryncie.\n\nUwa\u017Caj na fa\u0142szywe klucze oraz kolce!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
