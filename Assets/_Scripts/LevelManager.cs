@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public List<Switch> switches = new();
+    public List<Coin> coins = new();
 
     public static LevelManager instance;
 
@@ -25,6 +26,11 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public int GetAllCoinsCount()
+    {
+        return coins.Count;
     }
 
     public int GetSwitchesCount()

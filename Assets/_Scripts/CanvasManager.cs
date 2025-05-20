@@ -19,6 +19,7 @@ public class CanvasManager : MonoBehaviour
     public List<GameObject> uiToHideWhileMenu = new();
 
     public TextMeshProUGUI switchesText;
+    public TextMeshProUGUI coinsText;
 
     // Singleton pattern
     private void Awake()
@@ -27,19 +28,17 @@ public class CanvasManager : MonoBehaviour
             instance = this;
     }
 
-    public TextMeshProUGUI scoreText;
-
     private void Start()
     {
-        RenderScore();
+        RenderCoinsText();
         RenderPlayerInventory();
         RenderSwitchesText();
     }
 
-    public void RenderScore()
+    public void RenderCoinsText()
     {
         // Aktualizacja tekstu z wynikiem na podstawie danych z GameManagera
-        scoreText.text = GameManager.instance.GetScore() + " coins collected";
+        coinsText.text = GameManager.instance.GetScore() + "/" + LevelManager.instance.GetAllCoinsCount() + " zebranych monet";
     }
 
     public void RenderHealth()

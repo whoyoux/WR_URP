@@ -36,7 +36,7 @@ public class PlayerInventory : MonoBehaviour
             case Item.ItemType.Coin:
                 // Moneta zwiêksza wynik
                 GameManager.instance.AddScore(1);
-                CanvasManager.instance.RenderScore();
+                CanvasManager.instance.RenderCoinsText();
                 return true;
             case Item.ItemType.Health:
                 // Leczenie gracza
