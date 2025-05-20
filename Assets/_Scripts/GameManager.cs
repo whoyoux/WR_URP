@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
             instance = this;
+        }
+            
     }
 
     private void Start()
@@ -108,6 +112,11 @@ public class GameManager : MonoBehaviour
         CanvasManager.instance.ShowGameOverPanel();
 
         //TODO: Przycisk restartu
+    }
+
+    public void RenderSwitchesActivated()
+    {
+        CanvasManager.instance.RenderSwitchesText();
     }
 
 

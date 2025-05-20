@@ -18,6 +18,8 @@ public class CanvasManager : MonoBehaviour
 
     public List<GameObject> uiToHideWhileMenu = new();
 
+    public TextMeshProUGUI switchesText;
+
     // Singleton pattern
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class CanvasManager : MonoBehaviour
     {
         RenderScore();
         RenderPlayerInventory();
+        RenderSwitchesText();
     }
 
     public void RenderScore()
@@ -54,7 +57,7 @@ public class CanvasManager : MonoBehaviour
     {
         for (int i = 0; i < uiToHideWhileMenu.Count; i++)
         {
-            Debug.Log("Hiding UI: " + uiToHideWhileMenu[i].name);
+            //Debug.Log("Hiding UI: " + uiToHideWhileMenu[i].name);
             uiToHideWhileMenu[i].SetActive(false);
         }
     }
@@ -63,7 +66,7 @@ public class CanvasManager : MonoBehaviour
     {
         for (int i = 0; i < uiToHideWhileMenu.Count; i++)
         {
-            Debug.Log("Showing UI: " + uiToHideWhileMenu[i].name);
+            //Debug.Log("Showing UI: " + uiToHideWhileMenu[i].name);
             uiToHideWhileMenu[i].SetActive(true);
         }
     }
@@ -93,5 +96,12 @@ public class CanvasManager : MonoBehaviour
     public void ShowGameOverPanel()
     {
         gameOverGameObject.SetActive(true);
+    }
+
+    public void RenderSwitchesText()
+    {
+        int allSwitches = LevelManager.instance.GetSwitchesCount();
+        int activatedSwitchesCount = LevelManager.instance.GetActivitedSwitchesCount();
+        switchesText.text = activatedSwitchesCount + "/" + allSwitches + " aktywowanych kluczy";
     }
 }

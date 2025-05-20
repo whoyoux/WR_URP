@@ -24,6 +24,7 @@ public class CollectableItem : MonoBehaviour
         LeanTween.rotateAround(gameObject, Vector3.up, 360f, 5f).setLoopClamp();
         LeanTween.moveY(gameObject, transform.position.y + 0.5f, 1f).setLoopPingPong();
 
+
         // Tworzenie modelu graficznego przedmiotu w odpowiednim miejscu
         Instantiate(item.itemPrefab, itemGOHolder.position, Quaternion.identity, itemGOHolder);
 
