@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -136,7 +137,8 @@ public class GameManager : MonoBehaviour
     private void GAME_OVER()
     {
         PauseGame();
-        CanvasManager.instance.ShowGameOverPanel();
+        //CanvasManager.instance.ShowGameOverPanel();
+        SceneManager.LoadScene(0);
 
         //TODO: Przycisk restartu
     }

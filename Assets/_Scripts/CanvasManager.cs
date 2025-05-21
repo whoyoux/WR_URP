@@ -103,7 +103,7 @@ public class CanvasManager : MonoBehaviour
     {
         int allSwitches = LevelManager.instance.GetSwitchesCount();
         int activatedSwitchesCount = LevelManager.instance.GetActivitedSwitchesCount();
-        switchesText.text = activatedSwitchesCount + "/" + allSwitches + " aktywowanych kluczy";
+        switchesText.text = activatedSwitchesCount + "/" + allSwitches + " aktywowanych prze³¹czników";
     }
 
     public void ExitGame()
