@@ -10,6 +10,7 @@ public class NextLevelZone : MonoBehaviour
     {
         if (other.CompareTag("Player") && LevelManager.instance.CanOpenDoor())
         {
+            GameManager.instance.ResetCoins();
             SceneManager.LoadScene(sceneToLoadIndex);
         }
     }

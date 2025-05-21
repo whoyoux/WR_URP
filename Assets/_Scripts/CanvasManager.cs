@@ -21,6 +21,8 @@ public class CanvasManager : MonoBehaviour
     public TextMeshProUGUI switchesText;
     public TextMeshProUGUI coinsText;
 
+    public GameObject menuGameObject;
+
     // Singleton pattern
     private void Awake()
     {
@@ -102,5 +104,25 @@ public class CanvasManager : MonoBehaviour
         int allSwitches = LevelManager.instance.GetSwitchesCount();
         int activatedSwitchesCount = LevelManager.instance.GetActivitedSwitchesCount();
         switchesText.text = activatedSwitchesCount + "/" + allSwitches + " aktywowanych kluczy";
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ShowMenu()
+    {
+        menuGameObject.SetActive(true);
+    }
+
+    public void HideMenu()
+    {
+        menuGameObject.SetActive(false);
+    }
+
+    public void ResumeGame()
+    {
+        GameManager.instance.ResumeGame();
     }
 }

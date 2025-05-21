@@ -9,6 +9,7 @@ public class Spike : MonoBehaviour
     public float returnDuration = 3f;
     public float waitBeforeReturn = 5f;
     public int healthToTake = -50;
+    public bool isReversed = false;
 
     private Vector3 initialPosition;
     private AudioSource audioSource;
@@ -20,6 +21,7 @@ public class Spike : MonoBehaviour
 
     void Start()
     {
+        if(isReversed) offset = new Vector3(0, -1f, 0);
         initialPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
     }

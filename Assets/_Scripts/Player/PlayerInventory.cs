@@ -39,6 +39,10 @@ public class PlayerInventory : MonoBehaviour
                 // Leczenie gracza
                 GameManager.instance.AddHealth(10);
                 return true;
+            case Item.ItemType.Damage:
+                // Zmniejszenie zdrowia gracza
+                GameManager.instance.AddHealth(-25);
+                return true;
             case Item.ItemType.ToInventory:
                 // Przedmiot dodawany do ekwipunku, o ile nie jest pe³ny
                 if (inventory.Count < MAX_INVENTORY_SIZE)

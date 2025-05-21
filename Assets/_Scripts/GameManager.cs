@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     const float PLAYER_MAX_HEALTH = 100f;
 
     private float PLAYER_HEALTH = PLAYER_MAX_HEALTH;
-    
+
+    private bool IS_PAUSED = false;
+
 
     private void Awake()
     {
@@ -26,8 +28,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        CanvasManager.instance.HideUI();
-        WaitForAcceptTutorial();
+        //CanvasManager.instance.HideUI();
+        //WaitForAcceptTutorial();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IS_PAUSED)
+            {
+                ResumeGame();
+
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
     }
 
     public void LockCursor()
@@ -57,15 +75,24 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0f;
+
         CanvasManager.instance.HideUI();
+        CanvasManager.instance.ShowMenu();
+
         UnlockCursor();
+
+        IS_PAUSED = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f;
+        CanvasManager.instance.HideMenu();
         CanvasManager.instance.ShowUI();
+
         LockCursor();
+
+        IS_PAUSED = false;
     }
 
     public void AddScore(int score)
@@ -119,5 +146,10 @@ public class GameManager : MonoBehaviour
         CanvasManager.instance.RenderSwitchesText();
     }
 
+    public void ResetCoins()
+    {
+        PLAYER_SCORE = 0;
+        CanvasManager.instance.RenderCoinsText();
+    }
 
 }

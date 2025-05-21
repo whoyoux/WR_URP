@@ -13,6 +13,7 @@ public class Item : ScriptableObject
         Coin,
         Health,
         ToInventory,
+        Damage,
     }
 
     public enum ItemLight
